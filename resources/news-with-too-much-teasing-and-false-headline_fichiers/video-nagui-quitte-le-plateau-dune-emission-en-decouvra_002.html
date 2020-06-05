@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><script>var inDapIF=true,inGptIF=true;</script></head><body topmargin="0" marginwidth="0" marginheight="0" leftmargin="0"><div style="display:inline"><!-- variable pour le resizer à 1000 : true true / false -->
+
+
+<!-- Script Habillage grè à gré -->
+
+
+<script type="text/javascript">
+    /// new configuration ///
+    console.log('>>>> 29 août 2018 - 17:31')
+    var ClickURL = "https://adclick.g.doubleclick.net/pcs/click?xai=AKAOjstcqWMvUZmNSoSzG6hu9eMT2o830CnBsE7H_W9YMoyVp5GMXMdCwEaN4McttWoqvTlr04o-sQbqNz4F4MavVelud5uVnoWQFEbOeaHd5R9NsSqlzqdWfsLqHaQPBK6pgwNVSOzGWEyEjvK0DY4Gp8WsZmfsVWFAV2YmnI146DYpaQ02zAigViHYVsHK8t_8GQbdlqIBvxNs6ouDd356M4FPdJRymISF0m8llEACBmM9QFLlUc0HuD7gwaEH-YEyAGHjNPYpCForsFmKCApis33xvQBvfXvrJQZGOOf30h9YZGO9kDPZsOiVaXlFyNXa6Uw&sai=AMfl-YQc4fZV4AVGDFQ78GtVH2z-pFTkW9Ws_yrCuVqCyhV-4dLyTq39JIoYtjndGypEk5w2C9TUZeCbCJ7DszQ4DIeMzl0JTaNUa93QGrdBTtrB_5fB06vz_rTxPRqniou-aSTL&sig=Cg0ArKJSzBu2yGttCUvWEAE&urlfix=1&adurl=https://jeux-voici.prismaconnect.fr/quiz/669276_111/%2520Formulaire-Inscription-Pop-Up-Lectrices%2520.html",
+        ClickURLTarget = "", //legacy
+        ciblage = "", //legacy
+        backgroundAttachment = "", //legacy
+        bodyId = "corps",
+        topHeight = parseInt("460"),
+        bannerOffset = parseInt("0" == 0 || undefined ? 0 : "0"),
+        siteDocument = top.window.document,
+        root = siteDocument.getElementById(bodyId),
+        siteHeader = siteDocument.getElementsByClassName('site_header')[0],
+        siteContent = siteDocument.getElementsByClassName('site_content')[0],
+        // bannerDiv = siteDocument.getElementsByClassName('pmdfp_banniere_haute')[0],
+        bannerWidth = parseInt('0') !== 0 ? parseInt('0') : 0,
+        topPadding = bannerWidth === 0 ? topHeight : 0,
+        displayBanner = bannerWidth === 0 ? 'none' : 'block',
+        coverWidth = '1800',
+        coverHeight = '1000',
+        dfpObj = { //default values
+            htmlBlock: '',
+            styleBlock: ''
+        },
+        getPositionStyle = function (elem) {
+            if (!elem) return []; // Element does not exist, empty list.
+            var win = document.defaultView || window,
+                style,
+                styleNode;
+
+            if (win.getComputedStyle) {
+                style = win.getComputedStyle(elem, '');
+                for (var i = 0; i < style.length; i++) {
+                    if (style[i] === 'position') {
+                        styleNode = style.getPropertyValue(style[i]);
+                    }
+                }
+            } else if (elem.currentStyle) { /* IE */
+                style = elem.currentStyle;
+                for (var name in style) {
+                    if (name === 'position') {
+                        styleNode = style[name];
+                    }
+                }
+            } else { /* Ancient browser.. */
+                style = elem.style;
+                for (var i = 0; i < style.length; i++) {
+                    if (style[i] === 'position') {
+                        styleNode = style[style[i]];
+                    }
+                }
+            }
+            return styleNode;
+        },
+        makeSiblingsRelative = function (el) {
+            var sibs = el.parentNode.children;
+
+            for (var i = 0; i < sibs.length; i++) {
+                if (getPositionStyle(sibs[i]) === 'static' && sibs[i].className !== 'click-wrapper') {
+                    sibs[i].style.position = 'relative';
+                }
+            }
+        };
+
+    dfpObj.styleBlock = '#corps{' +
+        ' background-color: #FFFFFF;' +
+        ' background-image: url("https://securepubads.g.doubleclick.net/pcs/view?xai=AKAOjssajFXU91_w7SwjRw_lTbKACDgp_MOqt1qoy2xpXlgoLiiU53APnuBVPmHWVkO3vGZ_ViRoZD5ofjGwdD9hLAlPvEsyfSK2CKM6rMe_YONNhCFTSzRvRLYz2W41TRtEACvo-xlR0TFwCz4n5ySPyNbMxuedm_-J84l9Ey7xuBgMzjjvfqF0c72O1yMtGw_Enqlmadyy_jfU_LqCXk_9dioB3qs8AveCPxssNt4RaPZxVnmhmapJtxmJnp-xecBuHRnagAAoBKVbkkamEWaWi_XbBM_fum0C35BYkhouQ9gjmmbB4ABGRsEkm1n69x8hRug0_jWRYQx5nVMG8XCTa_VTYG_A7g&sai=AMfl-YRt1NoWcM6v7Ez9oACDEhMbyQrtbH7T3Zuh4AJAatUqqwenB1gMwfVfoZy_jZ0o9Lzx58rPQ-Cw0_StHnfuSbdge_Du6cZ-brudR5MxZ_QYUI1GZxkxbDK8-56Tqudm9Qdq&sig=Cg0ArKJSzLFTo47SmwD2EAE&urlfix=1&adurl=https://tpc.googlesyndication.com/pagead/imgad?id=CICAgKDHm5fpDRABGAEyCJGr6gtF__fz");' +
+        ' background-repeat: no-repeat;' +
+        ' background-position: 50% 0;' +
+        ' position: relative;' +
+        ' width: 100%;' +
+        ' padding-top: ' + topPadding + 'px; }' +
+        ' [data-ads-core*="Habillage-Interstitiel"],' +
+        ' [data-ads-core*="Out-Of-Banner"],' +
+        ' .pmdfp-placer.pmdfp_habillage,' +
+        ' .pmdfp-placer.pmdfp_out_of_banner {' +
+        ' display:none !important; }' +
+        ' [data-ads-core*="Banniere-Haute"],' +
+        ' .pmdfp-placer.pmdfp_banniere_haute {' +
+        ' margin: 0 auto; display: ' + displayBanner + ';' +
+        ' position: relative; top:' + bannerOffset + 'px;' +
+        ' width:' + bannerWidth + 'px;' +
+        ' height:' + topHeight + 'px;' +
+        ' }';
+
+    dfpObj.htmlBlock = '<div id="click-zone" style="cursor: pointer; overflow:hidden; position: absolute; left:50%; top:0; margin-left:-' + coverWidth / 2 + 'px; background-color: transparent; width:' + coverWidth + 'px; height:' + coverHeight + 'px; z-index:0" >' + '<a href="' + ClickURL + '" target="_' + ClickURLTarget + '">' +
+        '<span style="width:100%; height:100%; display:block"></span></a></div>';
+
+    // Insert CSS style block
+    var dfpStyleEl = document.createElement('style'),
+        nodeContent = '' + dfpObj.styleBlock + '',
+        styleNode = document.createTextNode(nodeContent),
+        dfpHead = siteDocument.getElementsByTagName('head')[0];
+
+    dfpStyleEl.setAttribute('type', 'text/css');
+    dfpStyleEl.appendChild(styleNode);
+    dfpHead.appendChild(dfpStyleEl);
+
+    //Insert HTML markup
+    var dfpHTML = document.createElement("div");
+
+    dfpHTML.className = 'click-wrapper';
+    dfpHTML.innerHTML = dfpObj.htmlBlock;
+    root.insertBefore(dfpHTML, root.firstChild);
+
+    console.log('>>>> true :', true, typeof true, siteContent)
+
+    if ("true" === "true" || "true" === true) {
+      console.log("true", siteContent)
+      siteContent.classList.add('site_skinrtb')
+    }
+
+    //ensure that links work
+    makeSiblingsRelative(siteContent);
+
+    console.log('successful new configuration..');
+
+    if (ClickURL != "") {
+        function OpenWin(page) {
+            if (ClickURLTarget == "self") {
+                window.top.document.location = page;
+            } else {
+                window.open(page, "_blank");
+            }
+        }
+
+        backClick = function (e) {
+            var bglink = ClickURL;
+            EE = e ? e : event;
+            if (!EE) return;
+            var tg = EE.target ? EE.target : EE.srcElement;
+            if ((!tg || tg.tagName != "BODY") && tg.parentNode.tagName != "BODY")
+                return;
+            var BackLink = OpenWin("" + bglink);
+        }
+
+        siteDocument.onclick = backClick;
+    }
+
+    /// end new configuration ///
+</script>
+
+<!-- script inhibant le refresh auto ne pas supprimer -->
+<script>
+console.log("no refresh banniere-haute + pave-haut");
+top.window.advertisingConfig = top.window.advertisingConfig || []
+top.window.advertisingConfig.push(
+{
+  "type": "Banniere-Haute",
+  "timeout": 0
+},
+{
+  "type": "Pave-Haut",
+  "timeout": 0
+}
+)
+</script>
+
+<!-- visibilité IAS habillage-->
+<iframe style="width: 0px; height: 0px; border: 0px none; display: none;" src="javascript:false"></iframe><script id="ias-1547161735">
+    (function () {
+        var iasScriptUrl, hiddenFrame, hiddenDoc, where, domain;
+        iasScriptUrl = '//pixel.adsafeprotected.com/jload?anId=10090&campId=1x1&pubId=147899809&chanId=21827524016&placementId=5177909944&pubCreative=138287881059&pubOrder=2603138860&ias_adpath=%23click-zone&cb=1547161735';
+        hiddenFrame = document.createElement('iframe');
+        (hiddenFrame.frameElement || hiddenFrame).style.cssText = "width: 0; height: 0; border: 0; display: none;";
+        hiddenFrame.src = 'javascript:false';
+        where = document.getElementById('ias-1547161735');
+        where.parentNode.insertBefore(hiddenFrame, where);
+        try {
+            hiddenDoc = hiddenFrame.contentWindow.document
+        } catch (e) {
+            domain = document.domain;
+            hiddenFrame.src = "javascript:var d=document.open();d.domain='" + domain + "';void(0);";
+            hiddenDoc = hiddenFrame.contentWindow.document
+        }
+        hiddenDoc.open().write('<body onload="' + 'window.__IntegralASUseFIF = true;' + 'var js = document.createElement(\'script\');' + 'js.src = \'' + iasScriptUrl + '\';' + 'document.body.appendChild(js);">');
+        hiddenDoc.close()
+    })();
+</script></div><script>if (window.top && window.top.postMessage) {window.top.postMessage('{"key_value":[{"key":"qid","value":"CIue8Nezo-UCFdrh1QodYFgA_Q"}],"googMsgType":"adpnt"}','*');}</script><div style="bottom:0;right:0;width:100px;height:100px;background:initial !important;position:absolute !important;max-width:100% !important;max-height:100% !important;pointer-events:none !important;image-rendering:-moz-crisp-edges !important;z-index:2147483647;background-image:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACsAAAAWBAMAAACrl3iAAAAABlBMVEUAAAD+AciWmZzWAAAAAnRSTlMAApidrBQAAAB8SURBVBjTbZEBDsAgCAPLD/j/a6e0ULaMaJRwQEXg34J2Li8PWdFEcsmLS4B02CsuSS/PcZ6mh9q11Tu6spTYmh2lkPROMpO8tR6QBUaFcIWN3sMaNJXK3zpqJZst3RpMBNYrBTNp9ceG1wQ1FNb25EYSvr/j2qMErebsBz5CBcAMg1OBAAAAAElFTkSuQmCC') !important;"></div><iframe style="width: 0px !important; height: 0px !important; border: 0px none !important; position: absolute !important; top: -10000px !important; left: -10000px !important;" src="cs_data/user_sync_data/showad_data/a.html"></iframe></body></html>

@@ -1,0 +1,1 @@
+window.mics&&window.mics._setOperatorId&&mics._setOperatorId('goo','tech:goo:CAESELKQBstBp7GvWaaj6TW9F90'),window.scimhtiraidem&&window.scimhtiraidem._setOperatorId&&scimhtiraidem._setOperatorId('goo','tech:goo:CAESELKQBstBp7GvWaaj6TW9F90')
